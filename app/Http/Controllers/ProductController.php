@@ -57,4 +57,11 @@ class ProductController extends Controller
             'status' => 'success'
         ]);
     }
+
+    // pagination
+
+    public function pagination(Request $request){
+        $products = Product::orderBy('created_at', 'desc')->paginate('5');
+        return view('pagination_products', compact('products'))->render();
+    }
 }
