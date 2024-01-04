@@ -23,3 +23,4 @@ Route::post('/product/create', [ProductController::class, 'create'])->name('prod
 Route::post('/product/update', [ProductController::class, 'update'])->name('product.update');
 Route::post('/product/delete', [ProductController::class, 'delete'])->name('product.delete');
 Route::get('/pagination/paginate-data', [ProductController::class, 'pagination']);
+Route::get('/search-product', [ProductController::class, 'searchProduct'])->name('product.search');

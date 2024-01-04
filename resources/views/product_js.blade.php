@@ -170,5 +170,25 @@
                 }
             });
         }
+
+        // search product
+
+        $(document).on('keyup', function (e) {
+            e.preventDefault();
+            let search_string = $('#search').val();
+
+            $.ajax({
+                url: "{{ route('product.search') }}",
+                method: 'GET',
+                data: {search_string:search_string},
+                success:function(response){
+                    $('.table-data').html(response);
+                    if (response.status == 'nothing_found') {
+                        $('.table-data').html('<div class= "alert alert-danger text-center text-danger">'+'Nothing found'+'</div>');
+                    }
+                    // +'<span class="text-danger">'+'</span>'
+                }
+            });
+        });
     });
 </script>

@@ -18,7 +18,11 @@
                 <h2 class="my-5 text-center">Laravel 10 Ajax Crud</h2>
                 <!-- Button trigger modal -->
                 <a href="#" class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</a>
+
+                <!-- Search box -->
+                <input type="text" name="search" id="search" class="mb-3 form-control" placeholder="Search Here...">
                 <div class="table-data">
+
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -29,9 +33,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($products as $key=>$product)
+                            @foreach ($products as $key => $product)
                                 <tr>
-                                    <th scope="row">{{ $key+1 }}</th>
+                                    <th scope="row">{{ $products->firstItem() +$key }}</th>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>
